@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf6f0;
+  --foreground: #3d2f24;
+  --paw: #c4a574;
+  --snoot: #8b6914;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-paw: var(--paw);
+  --color-snoot: var(--snoot);
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-fredoka);
+}
+
+html {
+  /* Prevents scroll anchoring from “sticking” to a paragraph after programmatic scroll */
+  overflow-anchor: none;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-nunito), system-ui, sans-serif;
+  -webkit-tap-highlight-color: rgb(196 165 116 / 25%);
+  overflow-anchor: none;
+}
+
+main {
+  overflow-anchor: none;
+}
+
+/* Subtle fridge-magnet / paper texture behind content */
+.remi-page-bg {
+  background-image: radial-gradient(
+      circle at 20% 30%,
+      rgb(255 255 255 / 0.45) 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgb(255 220 170 / 0.2) 0%,
+      transparent 40%
+    );
+}
+
+/*
+ * Remi cutout: slow rises, quick drops, ~2s hold hidden after each drop,
+ * fast 3rd rise, short beat then shake, final peek matches 1st rise height.
+ * Total 78s = prior 72s + 3×2s holds.
+ */
+@keyframes remi-cutout-show {
+  0% {
+    transform: translateY(100%) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.22, 0.55, 0.28, 1);
+  }
+  /* 1st rise — slow */
+  15.69% {
+    transform: translateY(72%) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.55, 0, 0.85, 0.15);
+  }
+  /* 1st drop — quick */
+  17.08% {
+    transform: translateY(100%) rotate(0deg);
+    animation-timing-function: linear;
+  }
+  /* hold hidden ~2s */
+  19.64% {
+    transform: translateY(100%) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.22, 0.55, 0.28, 1);
+  }
+  /* 2nd rise — slow */
+  33.95% {
+    transform: translateY(48%) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.55, 0, 0.85, 0.15);
+  }
+  /* 2nd drop — quick */
+  35.33% {
+    transform: translateY(100%) rotate(0deg);
+    animation-timing-function: linear;
+  }
+  /* hold hidden ~2s */
+  37.9% {
+    transform: translateY(100%) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.95, 0, 1, 0.32);
+  }
+  /* 3rd rise — fast */
+  39.28% {
+    transform: translateY(0%) rotate(0deg);
+    animation-timing-function: linear;
+  }
+  /* brief beat at full height before shake (~0.25s) */
+  39.6% {
+    transform: translateY(0%) rotate(0deg);
+    animation-timing-function: linear;
+  }
+  /* quick shake + tilt */
+  39.74% {
+    transform: translateY(0%) translateX(-14px) rotate(-5deg);
+    animation-timing-function: linear;
+  }
+  39.86% {
+    transform: translateY(0%) translateX(16px) rotate(6deg);
+    animation-timing-function: linear;
+  }
+  39.97% {
+    transform: translateY(0%) translateX(-12px) rotate(-4deg);
+    animation-timing-function: linear;
+  }
+  40.08% {
+    transform: translateY(0%) translateX(14px) rotate(5deg);
+    animation-timing-function: linear;
+  }
+  40.19% {
+    transform: translateY(0%) translateX(-9px) rotate(-3deg);
+    animation-timing-function: linear;
+  }
+  40.29% {
+    transform: translateY(0%) translateX(10px) rotate(4deg);
+    animation-timing-function: linear;
+  }
+  40.38% {
+    transform: translateY(0%) translateX(0) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.55, 0, 0.85, 0.12);
+  }
+  /* drop away — quick */
+  41.91% {
+    transform: translateY(100%) rotate(0deg);
+    animation-timing-function: linear;
+  }
+  /* hold hidden ~2s before final peek */
+  44.47% {
+    transform: translateY(100%) rotate(0deg);
+    animation-timing-function: cubic-bezier(0.22, 0.55, 0.28, 1);
+  }
+  /* final peek — same height as 1st rise */
+  46.78% {
+    transform: translateY(72%) rotate(0deg);
+    animation-timing-function: linear;
+  }
+  100% {
+    transform: translateY(72%) rotate(0deg);
+  }
+}
+
+.remi-cutout-anim {
+  animation: remi-cutout-show 78s linear forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .remi-cutout-anim {
+    animation: none !important;
+    transform: translateY(72%);
+  }
+}

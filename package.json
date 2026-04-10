@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "node ./scripts/ensure-project-root.mjs && next dev --webpack",
+    "dev:turbo": "node ./scripts/ensure-project-root.mjs && next dev --turbopack",
+    "build": "node ./scripts/ensure-project-root.mjs && next build --webpack",
     "start": "next start",
     "lint": "eslint"
   },
@@ -12,6 +13,9 @@
     "next": "16.2.3",
     "react": "19.2.4",
     "react-dom": "19.2.4"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

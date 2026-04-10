@@ -19,6 +19,8 @@
 html {
   /* Prevents scroll anchoring from “sticking” to a paragraph after programmatic scroll */
   overflow-anchor: none;
+  /* Clip horizontal bleed without the overflow-x:hidden quirk that forces overflow-y to compute to auto (double vertical scrollbars). */
+  overflow-x: clip;
 }
 
 body {
@@ -33,9 +35,24 @@ main {
   overflow-anchor: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-fredoka), system-ui, sans-serif;
+}
+
+.text-fredoka {
+  font-family: var(--font-fredoka), system-ui, sans-serif;
+}
 /* Subtle fridge-magnet / paper texture behind content */
 .remi-page-bg {
-  background-image: radial-gradient(
+  overflow-x: clip;
+  overflow-y: visible;
+  background-image:
+    radial-gradient(
       circle at 20% 30%,
       rgb(255 255 255 / 0.45) 0%,
       transparent 45%

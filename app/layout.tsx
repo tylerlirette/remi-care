@@ -34,10 +34,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${nunito.variable} ${fredoka.variable} min-h-full antialiased`}
+      className={`${nunito.variable} ${fredoka.variable} min-h-dvh antialiased`}
     >
       <body
-        className="min-h-full min-h-dvh text-[17px] leading-7 text-foreground sm:text-base sm:leading-relaxed"
+        className="min-h-dvh text-[17px] leading-7 text-foreground sm:text-base sm:leading-relaxed"
         suppressHydrationWarning
       >
         {children}

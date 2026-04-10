@@ -231,7 +231,7 @@ export default function Home() {
                 will have to take care of me now.
               </p>
               <p>
-                They kept sayign something about <strong>August</strong>, but
+                They kept saying something about <strong>August</strong>, but
                 it&apos;s April... They&apos;ve clearly lost it. As you all
                 know, I will bark at you like you&apos;re a burglar every time
                 you come over. That being said, barking is my love language, so

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { ImageLightbox } from "@/components/ImageLightbox";
+import { RemiConfettiButton } from "@/components/RemiConfettiButton";
 import { RemiCutout } from "@/components/RemiCutout";
 import { SmoothScrollTo } from "@/components/SmoothScrollTo";
 
@@ -192,17 +193,17 @@ export default function Home() {
   return (
     <>
       <RemiCutout />
-      <div className="remi-page-bg relative">
+      <div className="remi-page-bg">
         <div
-          className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-amber-200/40 blur-3xl"
+          className="pointer-events-none absolute -right-24 -top-24 z-0 h-64 w-64 rounded-full bg-amber-200/40 blur-3xl"
           aria-hidden
         />
         <div
-          className="pointer-events-none absolute -bottom-32 -left-32 h-80 w-80 rounded-full bg-orange-200/35 blur-3xl"
+          className="pointer-events-none absolute -bottom-32 -left-32 z-0 h-80 w-80 rounded-full bg-orange-200/35 blur-3xl"
           aria-hidden
         />
 
-        <main className="relative mx-auto max-w-5xl px-[max(1.25rem,env(safe-area-inset-left))] pb-[max(5rem,env(safe-area-inset-bottom))] pr-[max(1.25rem,env(safe-area-inset-right))] pt-8 sm:px-6 sm:pt-14">
+        <main className="relative z-10 mx-auto max-w-5xl px-[max(1.25rem,env(safe-area-inset-left))] pb-[max(5rem,env(safe-area-inset-bottom))] pr-[max(1.25rem,env(safe-area-inset-right))] pt-8 sm:px-6 sm:pt-14">
           <header className="text-center">
             <p className="inline-flex text-fredoka -rotate-1 items-center rounded-full border-2 border-amber-800/20 bg-amber-100/80 px-3 py-1  text-xs font-semibold uppercase tracking-[0.12em] text-amber-900 sm:text-sm">
               QR code tour · rated G (for Good boy)
@@ -538,7 +539,7 @@ export default function Home() {
               </p>
               <p>
                 <strong>Poop bags</strong> should be clipped onto the harness.
-                Dad started doing this so he didn't have to hold them (lazy
+                Dad started doing this so he didn&apos;t have to hold them (lazy
                 bum).
               </p>
               <p>
@@ -548,11 +549,80 @@ export default function Home() {
               </p>
               <p>
                 <strong>WARNING:</strong> The pokey caterpillars are back!
-                Please steer me clear of them so I don't accidently step on one.
-                They hurt my paws and make me very sad. I will try to avoid them
-                myself, but my eyesight isn't the greatest.
+                Please steer me clear of them so I don&apos;t accidently step on
+                one. They hurt my paws and make me very sad. I will try to avoid
+                them myself, but my eyesight isn&apos;t the greatest.
               </p>
             </div>
+          </section>
+
+          <section
+            className="mt-10 scroll-mt-10 rounded-3xl border-2 border-dashed border-violet-800/25 bg-violet-50/70 p-5 sm:p-8 sm:scroll-mt-12"
+            aria-labelledby="patch-notes-heading"
+          >
+            <h2
+              className="text-2xl font-semibold text-violet-950 sm:text-3xl"
+              id="patch-notes-heading"
+            >
+              <span className="mr-2" aria-hidden>
+                📋
+              </span>
+              Patch notes (very serious)
+            </h2>
+            <p className="mt-3 text-pretty text-violet-950/80">
+              Dad said a website needs &quot;release notes.&quot; I said okay,
+              but I&apos;m the product owner, the QA team, and the stakeholder
+              who eats grass.
+            </p>
+            <ul className="mt-5 space-y-3 text-base leading-relaxed text-violet-950/90">
+              <li>
+                <strong className="text-violet-950">Hotfix</strong> — Peanut
+                butter dab size standardized to &quot;polite gentleman,&quot;
+                not &quot;spoonfull.&quot;
+              </li>
+              <li>
+                <strong className="text-violet-950">v2.6.0</strong> — Buffed
+                grass cravings. Nerfed Dad&apos;s authority. (Balance is
+                subjective. I am not.)
+              </li>
+              <li>
+                <strong className="text-violet-950">v2.5.1</strong> — Breakfast
+                expansion pack: <strong>chicken fresh food </strong>topper onto
+                my food. Huge buff to morning morale.
+              </li>
+              <li>
+                <strong className="text-violet-950">v2.0.0</strong> — Hydration
+                DLC: second water bowl in the bedroom. High-skill players still
+                forget to refill it. No judgment. (Yes judgment. I&apos;m
+                thirsty.)
+              </li>
+              <li>
+                <strong className="text-violet-950">v1.9.2</strong> — Copy
+                update: clarified that I will absolutely try to mark everything.
+                Known issue marked &quot;working as intended (by me).&quot;
+              </li>
+              <li>
+                <strong className="text-violet-950">v1.4.0</strong> — Sleeping
+                perk upgraded from kennel instance to{" "}
+                <strong>mom and dad&apos;s bed</strong> co-op mode. Stability:
+                excellent. Blanket allocation: disputed. No plans to nerf.
+              </li>
+              <li>
+                <strong className="text-violet-950">v1.1.0</strong> — Dad
+                affinity rework: day-one Dad was on the &quot;do we really need
+                another dog?&quot; build. Patched over time with puppy cuteness
+                and general Remi excellence. Current status: Dad likes me a
+                normal amount (lie: he likes me a lot). Mom was right; I was
+                also right.
+              </li>
+              <li>
+                <strong className="text-violet-950">Beta </strong> — Internal
+                codename <strong>Jax</strong> retired. Rebranded to{" "}
+                <strong>Remi</strong> (Offical name: Sir Remington). Same dog,
+                new SKU, zero regression on handsomeness.
+              </li>
+            </ul>
+            <RemiConfettiButton />
           </section>
 
           <footer className="mt-16 border-t-2 border-dotted border-amber-800/20 pt-10 text-center">

@@ -576,36 +576,10 @@ export default function Home() {
             </p>
             <ul className="mt-5 space-y-3 text-base leading-relaxed text-violet-950/90">
               <li>
-                <strong className="text-violet-950">Hotfix</strong> — Peanut
-                butter dab size standardized to &quot;polite gentleman,&quot;
-                not &quot;spoonfull.&quot;
-              </li>
-              <li>
-                <strong className="text-violet-950">v2.6.0</strong> — Buffed
-                grass cravings. Nerfed Dad&apos;s authority. (Balance is
-                subjective. I am not.)
-              </li>
-              <li>
-                <strong className="text-violet-950">v2.5.1</strong> — Breakfast
-                expansion pack: <strong>chicken fresh food </strong>topper onto
-                my food. Huge buff to morning morale.
-              </li>
-              <li>
-                <strong className="text-violet-950">v2.0.0</strong> — Hydration
-                DLC: second water bowl in the bedroom. High-skill players still
-                forget to refill it. No judgment. (Yes judgment. I&apos;m
-                thirsty.)
-              </li>
-              <li>
-                <strong className="text-violet-950">v1.9.2</strong> — Copy
-                update: clarified that I will absolutely try to mark everything.
-                Known issue marked &quot;working as intended (by me).&quot;
-              </li>
-              <li>
-                <strong className="text-violet-950">v1.4.0</strong> — Sleeping
-                perk upgraded from kennel instance to{" "}
-                <strong>mom and dad&apos;s bed</strong> co-op mode. Stability:
-                excellent. Blanket allocation: disputed. No plans to nerf.
+                <strong className="text-violet-950">Beta </strong> — Internal
+                codename <strong>Jax</strong> retired. Rebranded to{" "}
+                <strong>Remi</strong> (Offical name: Sir Remington). Same dog,
+                new SKU, zero regression on handsomeness.
               </li>
               <li>
                 <strong className="text-violet-950">v1.1.0</strong> — Dad
@@ -616,10 +590,36 @@ export default function Home() {
                 also right.
               </li>
               <li>
-                <strong className="text-violet-950">Beta </strong> — Internal
-                codename <strong>Jax</strong> retired. Rebranded to{" "}
-                <strong>Remi</strong> (Offical name: Sir Remington). Same dog,
-                new SKU, zero regression on handsomeness.
+                <strong className="text-violet-950">v1.4.0</strong> — Sleeping
+                perk upgraded from kennel instance to{" "}
+                <strong>mom and dad&apos;s bed</strong> co-op mode. Stability:
+                excellent. Blanket allocation: disputed. No plans to nerf.
+              </li>
+              <li>
+                <strong className="text-violet-950">v1.9.2</strong> — Copy
+                update: clarified that I will absolutely try to mark everything.
+                Known issue marked &quot;working as intended (by me).&quot;
+              </li>
+              <li>
+                <strong className="text-violet-950">v2.0.0</strong> — Hydration
+                DLC: second water bowl in the bedroom. High-skill players still
+                forget to refill it. No judgment. (Yes judgment. I&apos;m
+                thirsty.)
+              </li>
+              <li>
+                <strong className="text-violet-950">v2.5.1</strong> — Breakfast
+                expansion pack: <strong>chicken fresh food </strong>topper onto
+                my food. Huge buff to morning morale.
+              </li>
+              <li>
+                <strong className="text-violet-950">v2.6.0</strong> — Buffed
+                grass cravings. Nerfed Dad&apos;s authority. (Balance is
+                subjective. I am not.)
+              </li>
+              <li>
+                <strong className="text-violet-950">Hotfix</strong> — Peanut
+                butter dab size standardized to &quot;polite gentleman,&quot;
+                not &quot;spoonfull.&quot;
               </li>
             </ul>
             <RemiConfettiButton />

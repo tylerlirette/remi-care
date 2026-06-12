@@ -67,6 +67,31 @@ const REMI_PHOTOS = [
   },
 ] as const;
 
+const WEBSITE_REVIEWS = [
+  {
+    name: "Sara",
+    title: "Auntie Sara",
+    src: "/sara.jpg",
+    quote: "This website is way too good for this world",
+    rotate: "-rotate-1",
+  },
+  {
+    name: "Peter",
+    title: "Uncle P P",
+    src: "/peter.jpg",
+    quote: "No trouble at all",
+    rotate: "rotate-1",
+  },
+  {
+    name: "Garritt",
+    title: "Uncle Garritt",
+    src: "/garritt.jpg",
+    quote:
+      "I would never say this to Tyler's face, but he is a wonderful person and a gifted artist.",
+    rotate: "rotate-2",
+  },
+] as const;
+
 /** Layout chunks: interleave photos instead of a flat grid */
 const PHOTO_GROUPS = [
   {
@@ -157,6 +182,47 @@ function PolaroidCard({
   );
 }
 
+function ReviewCard({
+  name,
+  title,
+  src,
+  quote,
+  rotate,
+}: {
+  name: string;
+  title: string;
+  src: string;
+  quote: string;
+  rotate: string;
+}) {
+  return (
+    <figure
+      className={`flex h-full flex-col rounded-3xl border-2 border-dashed border-rose-800/20 bg-white/90 p-5 shadow-[0_8px_30px_rgb(61,47,36,0.08)] backdrop-blur-sm transition-transform hover:z-10 hover:rotate-0 sm:p-6 ${rotate}`}
+    >
+      <div className="flex items-center gap-4">
+        <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-full ring-2 ring-amber-200 shadow-sm">
+          <Image
+            src={src}
+            alt={name}
+            fill
+            className="object-cover"
+            sizes="64px"
+          />
+        </div>
+        <figcaption>
+          <p className="text-fredoka text-lg font-semibold text-foreground">
+            {title}
+          </p>
+          <p className="text-sm text-foreground/60">Verified reader · 5 paws</p>
+        </figcaption>
+      </div>
+      <blockquote className="mt-4 flex-1 text-pretty text-base leading-relaxed text-foreground/90 before:content-['“'] after:content-['”']">
+        {quote}
+      </blockquote>
+    </figure>
+  );
+}
+
 function TimeCard({
   time,
   title,
@@ -225,23 +291,28 @@ export default function Home() {
             </span>
             <div className="max-w-xl mx-auto text-pretty text-foreground/90 mt-4 space-y-4">
               <p>
-                Hey <strong>Auntie Sara</strong>, <strong>Uncle Garritt</strong>
-                , and <strong>Uncle P P</strong> — Mom and Dad packed some bags
-                and left. I can only assume they are gone forever. So, you all
-                will have to take care of me now.
+                Hey — whoever&apos;s reading this: Mom and Dad packed some bags
+                and left <em>again</em>. I can only assume they are gone
+                forever (again). Congratulations, you are on Remi duty.
               </p>
               <p>
-                They kept saying something about <strong>August</strong>, but
-                it&apos;s April... They&apos;ve clearly lost it. As you all
-                know, I will bark at you like you&apos;re a burglar every time
-                you come over. That being said, barking is my love language, so
-                it just means I love you a lot.
+                Last time they ditched me it was just the two of them. This time
+                they took my little brother <strong>August</strong> too, which
+                feels personal. I stayed. I held down the fort. I was extremely
+                handsome about it.
               </p>
               <p>
-                Everything you need to love and take care of me forever is
-                below; walks are always a yes if someone&apos;s up for a slow
-                sniff tour (I promise I won&apos;t try and mark everything under
-                the sun (I lied. That will totally happen)).
+                Shoutout to <strong>Auntie Sara</strong>,{" "}
+                <strong>Uncle Garritt</strong>, and <strong>Uncle P P</strong>{" "}
+                for crushing it last round — five stars, would bark at you
+                again (affectionately). I will still bark at you like
+                you&apos;re a burglar when you walk in. That is my love language.
+              </p>
+              <p>
+                Everything you need to love and take care of me is below; walks
+                are always a yes if someone&apos;s up for a slow sniff tour (I
+                promise I won&apos;t try and mark everything under the sun (I
+                lied. That will totally happen)).
               </p>
             </div>
             <div className="mt-6 flex flex-col items-stretch gap-3 sm:items-start md:mx-auto md:max-w-xl md:items-center">
@@ -364,6 +435,74 @@ export default function Home() {
                   </div>
                 );
               })}
+            </div>
+          </section>
+
+          <section
+            className="mt-16 rounded-3xl border-2 border-dashed border-orange-800/25 bg-orange-50/70 p-5 sm:p-8"
+            aria-labelledby="august-heading"
+          >
+            <h2
+              className="text-2xl font-semibold text-orange-950 sm:text-3xl"
+              id="august-heading"
+            >
+              <span className="mr-2" aria-hidden>
+                👶
+              </span>
+              New roommate: August (I babysit now)
+            </h2>
+            <div className="mt-6 flex flex-col gap-8 md:flex-row md:items-center">
+              <figure className="mx-auto w-full max-w-sm shrink-0 rotate-1 rounded-sm bg-white p-2 pb-3 shadow-[4px_6px_0_rgb(61,47,36,0.12),0_12px_28px_rgb(61,47,36,0.08)] ring-1 ring-amber-900/10 md:mx-0">
+                <div className="relative aspect-4/5 w-full overflow-hidden bg-stone-200">
+                  <Image
+                    src="/remi-babysit.jpg"
+                    alt="Remi babysitting his baby brother August"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 92vw, 384px"
+                  />
+                </div>
+                <figcaption className="mt-2.5 px-1 text-center text-sm leading-snug text-amber-950/85">
+                  On duty. Very professional. Mostly licking.
+                </figcaption>
+              </figure>
+              <div className="space-y-3 text-base leading-relaxed text-orange-950/90">
+                <p>
+                  August has arrived. He is small, loud, and apparently my
+                  responsibility now. Dad calls this &quot;babysitting.&quot; I
+                  call it <strong>quality assurance</strong>.
+                </p>
+                <p>
+                  I lick his head and his feet on a regular schedule to make
+                  sure he still tastes the way he&apos;s supposed to. So far:
+                  passing grades. Dad keeps saying &quot;Remi, no&quot; but I
+                  think he&apos;s just jealous of my thoroughness.
+                </p>
+                <p>
+                  If you are watching me while Mom and Dad are gone: August is
+                  not on your quest log. He went with them. This is a
+                  flashback photo for morale. I am still very proud of it.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section
+            className="mt-16"
+            aria-labelledby="reviews-heading"
+          >
+            <SectionTitle emoji="⭐" id="reviews-heading">
+              Website reviews
+            </SectionTitle>
+            <p className="mt-3 max-w-2xl text-foreground/80">
+              Real quotes about this very serious website — not about watching
+              me, though they did crush that too. Dad wanted Yelp stars. I
+              wanted more treats. We compromised on this.
+            </p>
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+              {WEBSITE_REVIEWS.map((review) => (
+                <ReviewCard key={review.name} {...review} />
+              ))}
             </div>
           </section>
 
@@ -617,6 +756,13 @@ export default function Home() {
                 subjective. I am not.)
               </li>
               <li>
+                <strong className="text-violet-950">v3.0.0</strong> — Brother
+                DLC: deployed <strong>August</strong>. Unlocked babysitting
+                co-op and a new QA ritual — head licks and foot licks to
+                confirm he still tastes correct. Dad filed a bug report. Closed
+                as &quot;working as intended (by Remi).&quot;
+              </li>
+              <li>
                 <strong className="text-violet-950">Hotfix</strong> — Peanut
                 butter dab size standardized to &quot;polite gentleman,&quot;
                 not &quot;spoonfull.&quot;
@@ -634,9 +780,9 @@ export default function Home() {
               sincerely, Remi
             </p>
             <p className="mt-2 text-sm text-foreground/60">
-              P.S. I think I&apos;m getting a new brother soon. I hope he&apos;s
-              cool. I will probably try to lick his face, but that is just how I
-              show affection.
+              P.S. August is here now. He is cool. I lick his head and feet to
+              keep him calibrated. Dad says that is not babysitting. I have
+              screenshots that disagree.
             </p>
           </footer>
         </main>

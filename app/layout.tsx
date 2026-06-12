@@ -15,9 +15,9 @@ const fredoka = Fredoka({
 });
 
 export const metadata: Metadata = {
-  title: "Remi’s notes for Sara, Garritt & Uncle P P",
+  title: "Remi’s care notes (for whoever got stuck with me)",
   description:
-    "Remi’s cheat sheet: food, pills, water, and bark-related disclaimers while Tyler & fam meet August.",
+    "Remi’s cheat sheet: food, pills, water, bark-related disclaimers, and verified website reviews.",
 };
 
 export const viewport: Viewport = {
